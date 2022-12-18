@@ -2,7 +2,6 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeStackScreen} from './homeStack';
 import {InfoScreen} from '../screens/info';
-import {Text} from 'react-native';
 import Home from '../../assets/svg/home.svg';
 import Settings from '../../assets/svg/settings.svg';
 
