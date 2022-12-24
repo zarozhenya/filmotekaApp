@@ -12,7 +12,7 @@ export const MainStack = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarIcon: ({color, size}) => {
+        tabBarIcon: ({color}) => {
           switch (route.name) {
             case 'Home':
               return <Home height={20} width={20} fill={color} />;

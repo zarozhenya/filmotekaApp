@@ -8,7 +8,11 @@ export const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.flex}>
       <View style={styles.container}>
-        <Text onPress={() => navigation.navigate('Details')}>Home</Text>
+        <Text
+          style={styles.text}
+          onPress={() => navigation.navigate('Details')}>
+          Home
+        </Text>
       </View>
     </SafeAreaView>
   );
