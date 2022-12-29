@@ -3,11 +3,11 @@ import {SafeAreaView, View} from 'react-native';
 import {Title} from '../../../components/Title';
 import {styles} from './styles';
 
-export const InfoScreen = () => {
+export const MovieScreen = () => {
   return (
     <SafeAreaView style={styles.flex}>
       <View style={styles.container}>
-        <Title text="Info" />
+        <Title text="Movies" />
       </View>
     </SafeAreaView>
   );

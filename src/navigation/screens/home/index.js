@@ -1,18 +1,17 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView, View} from 'react-native';
+import {MoviesList} from '../../../components/MoviesList';
+import {QueryInput} from '../../../components/QueryInput';
+import {Title} from '../../../components/Title';
 import {styles} from './styles';
 
 export const HomeScreen = () => {
-  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.flex}>
       <View style={styles.container}>
-        <Text
-          style={styles.text}
-          onPress={() => navigation.navigate('Details')}>
-          Home
-        </Text>
+        <Title text={'Home'} />
+        <QueryInput />
+        <MoviesList />
       </View>
     </SafeAreaView>
   );
