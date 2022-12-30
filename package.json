@@ -22,7 +22,8 @@
     "react-native-screens": "^3.18.2",
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^13.6.0",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "use-debounce": "^9.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

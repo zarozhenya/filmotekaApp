@@ -14,6 +14,7 @@ EStyleSheet.build({
   $primaryTextColor: '#000000',
   $secondaryTextColor: '#8C8C8C',
   $accentColor: '#FF6B08',
+  $backgroundColor: '#ffffff',
 });
 
 const App = () => {

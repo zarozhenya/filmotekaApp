@@ -14,7 +14,18 @@ export const Stats = ({votes, popularity, originalTitle, genres}) => {
         <Text style={styles.textKey}>Genre</Text>
       </View>
       <View>
-        <Text style={[styles.textValue, {marginBottom: 8}]}>Vote / Votes</Text>
+        <View style={[styles.textKeyContainer, {marginBottom: 8}]}>
+          <View style={styles.votesRatingContainer}>
+            <Text style={styles.votesRatingText}>
+              {votes.rating.toFixed(1)}
+            </Text>
+          </View>
+          <Text style={[styles.votesCountText, {marginRight: 4}]}>/</Text>
+          <View style={styles.votesCountContainer}>
+            <Text style={styles.votesCountText}>{votes.count}</Text>
+          </View>
+        </View>
+
         <Text style={[styles.textValue, {marginBottom: 8}]}>
           {popularity.toFixed(1)}
         </Text>
@@ -25,11 +36,9 @@ export const Stats = ({votes, popularity, originalTitle, genres}) => {
           ]}>
           {originalTitle}
         </Text>
-        <View style={styles.textKeyContainer}>
-          <Text style={styles.textValue}>
-            {genres.map(key => allGenres[key]).join(', ')}
-          </Text>
-        </View>
+        <Text style={styles.textValue}>
+          {genres.map(key => allGenres[key]).join(', ')}
+        </Text>
       </View>
     </View>
   );

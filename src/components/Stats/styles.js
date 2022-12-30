@@ -11,6 +11,7 @@ export const styles = EStyleSheet.create({
   textKeyContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    alignItems: 'center',
   },
   textKey: {
     fontFamily: '$primaryFont',
@@ -22,5 +23,28 @@ export const styles = EStyleSheet.create({
     fontSize: '$primaryFontSize',
     color: '$primaryTextColor',
     overflow: 'scroll',
+  },
+  votesRatingText: {
+    fontFamily: '$primaryFont',
+    fontSize: '$primaryFontSize',
+    color: '#ffffff',
+  },
+  votesRatingContainer: {
+    backgroundColor: '$accentColor',
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    marginRight: 4,
+    borderRadius: 8,
+  },
+  votesCountText: {
+    fontFamily: '$primaryFont',
+    fontSize: '$primaryFontSize',
+    color: '$primaryTextColor',
+  },
+  votesCountContainer: {
+    backgroundColor: '#F7F7F7',
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    borderRadius: 8,
   },
 });
