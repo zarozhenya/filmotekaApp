@@ -1,16 +1,19 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import Config from 'react-native-config';
 import {styles} from './styles';
 import genres from '../../utils/genres.json';
+import {ProgressiveImage} from '../ProgressiveImage';
+import {useNavigation} from '@react-navigation/native';
 
 export const ListItem = ({item, index, length}) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={index !== length - 1 && styles.itemWithMargin}>
-      <Image
-        source={{
-          uri: `${Config.IMAGE_URL}${item.poster_path}`,
-        }}
+    <TouchableOpacity
+      style={index !== length - 1 && styles.itemWithMargin}
+      onPress={() => navigation.navigate('Details', {item})}>
+      <ProgressiveImage
+        path={`${Config.IMAGE_URL}${item.poster_path}`}
         style={styles.image}
       />
       <Text style={styles.text}>{item.title}</Text>

@@ -7,10 +7,12 @@ import {store} from './redux/store';
 
 EStyleSheet.build({
   $primaryFont: 'Roboto-Medium',
+  $secondaryFont: 'Roboto-Regular',
   $titleFontFamily: 'Roboto-Black',
   $primaryFontSize: 14,
   $titleFontSize: 24,
   $primaryTextColor: '#000000',
+  $secondaryTextColor: '#8C8C8C',
   $accentColor: '#FF6B08',
 });
 
