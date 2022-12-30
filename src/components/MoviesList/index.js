@@ -15,7 +15,9 @@ export const MoviesList = () => {
   return (
     <FlatList
       data={list}
-      renderItem={({item}) => <ListItem item={item} />}
+      renderItem={({item, index}) => (
+        <ListItem item={item} index={index} length={list.length} />
+      )}
       ListEmptyComponent={<EmptyList />}
       onEndReached={() => {
         dispatch(fetchTrendingMovies());

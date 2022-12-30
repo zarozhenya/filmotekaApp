@@ -7,8 +7,23 @@ export const styles = EStyleSheet.create({
     color: '$primaryTextColor',
     textAlign: 'center',
   },
+  text: {
+    fontFamily: '$primaryFont',
+    fontSize: '$primaryFontSize',
+    color: '$primaryTextColor',
+    textTransform: 'uppercase',
+  },
+  subText: {
+    fontFamily: '$primaryFont',
+    fontSize: '$primaryFontSize',
+    color: '$accentColor',
+  },
   image: {
     width: '100%',
     aspectRatio: 2 / 3,
+    marginBottom: 10,
+  },
+  itemWithMargin: {
+    marginBottom: 15,
   },
 });

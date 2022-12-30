@@ -10,7 +10,6 @@ export const fetchTrendingMovies = createAsyncThunk(
       page: state.movie.page,
     });
     const url = `${Config.API_URL}/trending/movie/day?${params}`;
-    console.log(url);
     const data = await fetch(url).then(res => res.json());
     return data.results;
   },
