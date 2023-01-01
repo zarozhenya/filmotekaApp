@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "839332022784",
+    "firebase_url": "https://filmoteka-29d04-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "filmoteka-29d04",
+    "storage_bucket": "filmoteka-29d04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839332022784:android:114e94e99db2cc1b4326e5",
+        "android_client_info": {
+          "package_name": "com.filmoteka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839332022784-m2ku19s70jhtrn7r08pgvmg0n0vqs9o9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.filmoteka",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "839332022784-7en95dsjr8aaoka2mcjp5inmi3bjo53q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV8WUolx6Fvl8cZwH9tU4eAxMknPxzXwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839332022784-7en95dsjr8aaoka2mcjp5inmi3bjo53q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "839332022784-t52qks4ngqhvd274ntc7nrcd9vq3pbv4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.Filmoteka"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
