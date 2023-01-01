@@ -12,7 +12,6 @@ export const fetchMovies = createAsyncThunk(
     const url = state.movie.isTrending
       ? `${Config.API_URL}/trending/movie/day?${params}`
       : `${Config.API_URL}/search/movie?${params}&query=${state.movie.query}`;
-    console.log(url);
     const data = await fetch(url).then(res => res.json());
     return data.results;
   },
