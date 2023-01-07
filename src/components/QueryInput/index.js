@@ -16,6 +16,7 @@ export const QueryInput = () => {
   return (
     <TextInput
       placeholder="Enter the query"
+      autoCorrect={false}
       style={[styles.input, isFocused && styles.inputAccent]}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}

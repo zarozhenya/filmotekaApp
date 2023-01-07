@@ -1,4 +1,5 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
+import auth from '@react-native-firebase/auth';
 import Config from 'react-native-config';
 
 export const fetchMovies = createAsyncThunk(
@@ -14,5 +15,19 @@ export const fetchMovies = createAsyncThunk(
       : `${Config.API_URL}/search/movie?${params}&query=${state.movie.query}`;
     const data = await fetch(url).then(res => res.json());
     return data.results;
+  },
+);
+
+export const signUserIn = createAsyncThunk(
+  'user/signUserIn',
+  async ({email, password}, thunkAPI) => {
+    try {
+      const {
+        user: {uid},
+      } = await auth().signInWithEmailAndPassword(email, password);
+      return JSON.stringify({uid, email});
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.code);
+    }
   },
 );
