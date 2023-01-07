@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {Keyboard, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {useDispatch} from 'react-redux';
-import {signUserIn} from '../../redux/operations';
+import {useDispatch, useSelector} from 'react-redux';
+import {logUserOut, signUserIn} from '../../redux/operations';
+import {selectUser} from '../../redux/userSlice';
 import {styles} from './styles';
 
 export const Login = () => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -26,14 +28,23 @@ export const Login = () => {
         value={password}
         secureTextEntry={true}
       />
-      <TouchableOpacity
-        onPress={() => {
-          console.log(email, password);
-          dispatch(signUserIn({email, password}));
-          Keyboard.dismiss();
-        }}>
-        <Text>Sign In</Text>
-      </TouchableOpacity>
+
+      {user !== null ? (
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(logUserOut());
+          }}>
+          <Text>Log Out</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(signUserIn({email, password}));
+            Keyboard.dismiss();
+          }}>
+          <Text>Sign In</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

@@ -4,6 +4,7 @@ import {Navigation} from './navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
+import {Auth} from './auth';
 
 EStyleSheet.build({
   $primaryFont: 'Roboto-Medium',
@@ -23,6 +24,7 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
+      <Auth />
       <Navigation />
     </Provider>
   );

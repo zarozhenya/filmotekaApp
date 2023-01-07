@@ -31,3 +31,14 @@ export const signUserIn = createAsyncThunk(
     }
   },
 );
+
+export const logUserOut = createAsyncThunk(
+  'user/logUserOut',
+  async (_, thunkAPI) => {
+    try {
+      return await auth().signOut();
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.code);
+    }
+  },
+);
