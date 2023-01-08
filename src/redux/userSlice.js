@@ -40,6 +40,8 @@ export const userReducer = userSlice.reducer;
 
 export const selectUser = state => state.user.data;
 
+export const selectError = state => state.user.error;
+
 export const selectQueueList = state => state.user.queueList;
 
 export const selectWatchedList = state => state.user.watchedList;

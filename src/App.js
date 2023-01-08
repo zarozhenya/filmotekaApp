@@ -4,6 +4,7 @@ import {Navigation} from './navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
+import FlashMessage from 'react-native-flash-message';
 import {Auth} from './auth';
 
 EStyleSheet.build({
@@ -26,6 +27,7 @@ const App = () => {
     <Provider store={store}>
       <Auth />
       <Navigation />
+      <FlashMessage position="top" />
     </Provider>
   );
 };
