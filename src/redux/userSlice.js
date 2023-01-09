@@ -17,6 +17,12 @@ const userSlice = createSlice({
       state.data = parsedPayload;
       state.error = null;
     },
+    setQueueList: (state, {payload}) => {
+      state.queueList = payload;
+    },
+    setWatchedList: (state, {payload}) => {
+      state.watchedList = payload;
+    },
   },
   extraReducers: builder =>
     builder
@@ -40,7 +46,8 @@ const userSlice = createSlice({
       ),
 });
 
-export const {setUserOnAuthStateChanged} = userSlice.actions;
+export const {setUserOnAuthStateChanged, setQueueList, setWatchedList} =
+  userSlice.actions;
 
 export const userReducer = userSlice.reducer;
 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {ActivityIndicator, View, Image} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {styles} from './styles';
 
 export const ProgressiveImage = ({path, style}) => {
@@ -15,7 +16,12 @@ export const ProgressiveImage = ({path, style}) => {
         onLoadStart={() => setIsLoading(true)}
         onLoadEnd={() => setIsLoading(false)}
       />
-      {isLoading && <ActivityIndicator style={styles.indicator} />}
+      {isLoading && (
+        <ActivityIndicator
+          style={styles.indicator}
+          color={EStyleSheet.value('$accentColor')}
+        />
+      )}
     </View>
   );
 };
