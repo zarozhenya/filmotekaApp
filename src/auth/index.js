@@ -14,5 +14,4 @@ export const Auth = () => {
       );
     });
   }, [dispatch]);
-  return <></>;
 };

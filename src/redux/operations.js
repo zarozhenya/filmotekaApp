@@ -32,6 +32,20 @@ export const signUserIn = createAsyncThunk(
   },
 );
 
+export const signUserUp = createAsyncThunk(
+  'user/signUserUp',
+  async ({email, password}, thunkAPI) => {
+    try {
+      const {
+        user: {uid},
+      } = await auth().createUserWithEmailAndPassword(email, password);
+      return JSON.stringify({uid, email});
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.code);
+    }
+  },
+);
+
 export const logUserOut = createAsyncThunk(
   'user/logUserOut',
   async (_, thunkAPI) => {

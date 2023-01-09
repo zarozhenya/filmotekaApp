@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {logUserOut, signUserIn} from './operations';
+import {createSlice, isAnyOf} from '@reduxjs/toolkit';
+import {logUserOut, signUserIn, signUserUp} from './operations';
 
 const initialState = {
   data: null,
@@ -20,18 +20,24 @@ const userSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(signUserIn.fulfilled, (state, {payload}) => {
-        const parsedUser = JSON.parse(payload);
-        state.data = parsedUser;
-        state.error = null;
-      })
-      .addCase(signUserIn.rejected, (state, {payload}) => {
-        state.error = payload;
-      })
       .addCase(logUserOut.fulfilled, state => {
         state.data = null;
         state.error = null;
-      }),
+      })
+      .addMatcher(
+        isAnyOf(signUserIn.fulfilled, signUserUp.fulfilled),
+        (state, {payload}) => {
+          const parsedUser = JSON.parse(payload);
+          state.data = parsedUser;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        isAnyOf(signUserIn.rejected, signUserUp.rejected),
+        (state, {payload}) => {
+          state.error = payload;
+        },
+      ),
 });
 
 export const {setUserOnAuthStateChanged} = userSlice.actions;
