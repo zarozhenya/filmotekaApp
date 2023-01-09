@@ -1,13 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
-import {useSelector} from 'react-redux';
+import {Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import {firebase} from '@react-native-firebase/database';
-import {selectUser, setQueueList, setWatchedList} from '../../redux/userSlice';
+import {
+  selectQueueList,
+  selectUser,
+  selectWatchedList,
+  setQueueList,
+  setWatchedList,
+} from '../../redux/userSlice';
 import {styles} from './styles';
+import {EmptyList} from './EmptyList';
+import {ListItem} from './ListItem';
 
 export const MyMoviesLists = () => {
+  const dispatch = useDispatch();
   const {uid} = useSelector(selectUser);
   const [isShowingWatched, setIsShowingWatched] = useState(true);
+  const queueList = useSelector(selectQueueList);
+  const watchedList = useSelector(selectWatchedList);
   useEffect(() => {
     const ref = firebase
       .app()
@@ -18,21 +29,21 @@ export const MyMoviesLists = () => {
 
     const onValueChange = ref.on('value', async snapshot => {
       if (!snapshot.val()) {
-        setWatchedList([]);
-        setQueueList([]);
+        dispatch(setWatchedList([]));
+        dispatch(setQueueList([]));
         return;
       }
       const {queue, watched} = snapshot.val();
-      setWatchedList(watched || []);
-      setQueueList(queue || []);
+      dispatch(setWatchedList(watched || []));
+      dispatch(setQueueList(queue || []));
     });
     return () => {
       ref.off('value', onValueChange);
     };
-  }, [uid]);
+  }, [dispatch, uid]);
 
   return (
-    <View>
+    <View style={styles.flex}>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={() => setIsShowingWatched(false)}
@@ -68,6 +79,17 @@ export const MyMoviesLists = () => {
           </Text>
         </TouchableOpacity>
       </View>
+      <FlatList
+        data={isShowingWatched ? watchedList : queueList}
+        ListEmptyComponent={<EmptyList />}
+        renderItem={({item, index}) => (
+          <ListItem
+            item={item}
+            index={index}
+            length={isShowingWatched ? watchedList.length : queueList.length}
+          />
+        )}
+      />
     </View>
   );
 };
