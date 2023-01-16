@@ -103,7 +103,7 @@ export const ControlButtons = ({item, user}) => {
   };
   const handlePressOnRemoveFromQueueList = () => {
     const filteredQueueList = queueList.filter(({id}) => id !== item.id);
-    ref.set({queue: filteredQueueList}).then(() => {
+    ref.update({queue: filteredQueueList}).then(() => {
       showMessage({
         message: 'Removed from queue!',
         type: 'success',
@@ -113,7 +113,7 @@ export const ControlButtons = ({item, user}) => {
   };
   const handlePressOnRemoveFromWatchedList = () => {
     const filteredWatchedList = watchedList.filter(({id}) => id !== item.id);
-    ref.set({watched: filteredWatchedList}).then(() => {
+    ref.update({watched: filteredWatchedList}).then(() => {
       showMessage({
         message: 'Removed from watched!',
         type: 'success',
