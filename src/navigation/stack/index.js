@@ -5,7 +5,7 @@ import {InfoScreen} from '../screens/info';
 import Home from '../../assets/svg/home.svg';
 import Settings from '../../assets/svg/settings.svg';
 import Movie from '../../assets/svg/movie.svg';
-import {MovieScreen} from '../screens/movies';
+import {MovieStackScreen} from './movieStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,7 @@ export const MainStack = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarIcon: ({focused, color}) => {
+        tabBarIcon: ({color}) => {
           switch (route.name) {
             case 'Home':
               return <Home height={20} width={20} fill={color} />;
@@ -30,7 +30,7 @@ export const MainStack = () => {
         tabBarInactiveTintColor: '#545454',
       })}>
       <Tab.Screen name="Home" component={HomeStackScreen} />
-      <Tab.Screen name="Movies" component={MovieScreen} />
+      <Tab.Screen name="Movies" component={MovieStackScreen} />
       <Tab.Screen name="Info" component={InfoScreen} />
     </Tab.Navigator>
   );
